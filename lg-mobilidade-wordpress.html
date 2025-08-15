@@ -1,0 +1,1911 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LG Mobilidade Urbana - Consultoria Especializada em Transporte Público</title>
+    <meta name="description" content="Consultoria especializada em mobilidade urbana. Oferecemos soluções completas para planejamento, gestão e operação de sistemas de transporte público.">
+    <meta name="keywords" content="mobilidade urbana, transporte público, consultoria, BRT, ônibus urbano, planejamento urbano">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="LG Mobilidade Urbana - Consultoria Especializada">
+    <meta property="og:description" content="Soluções técnicas para transporte público com mais de 25 anos de experiência">
+    <meta property="og:url" content="https://lgmobilidadeurbana.com">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="LG Mobilidade Urbana">
+    <meta property="twitter:description" content="Consultoria especializada em mobilidade urbana">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <style>
+        /* CSS Variables - Design System */
+        :root {
+            /* Colors (HSL format) */
+            --background: hsl(0, 0%, 100%);
+            --foreground: hsl(212, 12%, 15%);
+            --card: hsl(0, 0%, 100%);
+            --card-foreground: hsl(212, 12%, 15%);
+            --primary: hsl(214, 84%, 45%);
+            --primary-foreground: hsl(0, 0%, 100%);
+            --primary-hover: hsl(214, 84%, 40%);
+            --secondary: hsl(210, 16%, 93%);
+            --secondary-foreground: hsl(212, 12%, 15%);
+            --muted: hsl(210, 16%, 93%);
+            --muted-foreground: hsl(215, 13%, 50%);
+            --accent: hsl(142, 71%, 45%);
+            --accent-foreground: hsl(0, 0%, 100%);
+            --accent-hover: hsl(142, 71%, 40%);
+            --border: hsl(214, 32%, 91%);
+            --input: hsl(214, 32%, 91%);
+            --ring: hsl(214, 84%, 45%);
+            
+            /* Custom mobility colors */
+            --mobility-blue: hsl(214, 84%, 45%);
+            --mobility-green: hsl(142, 71%, 45%);
+            --mobility-gray: hsl(212, 12%, 15%);
+            --mobility-light: hsl(210, 16%, 98%);
+            
+            /* Spacing */
+            --spacing-xs: 0.25rem;
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 1.5rem;
+            --spacing-xl: 2rem;
+            --spacing-2xl: 3rem;
+            --spacing-3xl: 4rem;
+            
+            /* Border radius */
+            --radius: 0.5rem;
+            --radius-sm: calc(var(--radius) - 4px);
+            --radius-md: calc(var(--radius) - 2px);
+            --radius-lg: var(--radius);
+            
+            /* Typography */
+            --font-size-xs: 0.75rem;
+            --font-size-sm: 0.875rem;
+            --font-size-base: 1rem;
+            --font-size-lg: 1.125rem;
+            --font-size-xl: 1.25rem;
+            --font-size-2xl: 1.5rem;
+            --font-size-3xl: 1.875rem;
+            --font-size-4xl: 2.25rem;
+            --font-size-5xl: 3rem;
+            --font-size-6xl: 3.75rem;
+            
+            /* Shadows */
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            
+            /* Transitions */
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        /* Dark mode support */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --background: hsl(222.2, 84%, 4.9%);
+                --foreground: hsl(210, 40%, 98%);
+                --card: hsl(222.2, 84%, 4.9%);
+                --card-foreground: hsl(210, 40%, 98%);
+                --primary: hsl(210, 40%, 98%);
+                --primary-foreground: hsl(222.2, 47.4%, 11.2%);
+                --secondary: hsl(217.2, 32.6%, 17.5%);
+                --secondary-foreground: hsl(210, 40%, 98%);
+                --muted: hsl(217.2, 32.6%, 17.5%);
+                --muted-foreground: hsl(215, 20.2%, 65.1%);
+                --accent: hsl(217.2, 32.6%, 17.5%);
+                --accent-foreground: hsl(210, 40%, 98%);
+                --border: hsl(217.2, 32.6%, 17.5%);
+                --input: hsl(217.2, 32.6%, 17.5%);
+                --ring: hsl(212.7, 26.8%, 83.9%);
+            }
+        }
+        
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--foreground);
+            background-color: var(--background);
+            font-size: var(--font-size-base);
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+        
+        @media (min-width: 640px) {
+            .container {
+                padding: 0 var(--spacing-lg);
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .container {
+                padding: 0 var(--spacing-xl);
+            }
+        }
+        
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        h1 {
+            font-size: var(--font-size-4xl);
+        }
+        
+        h2 {
+            font-size: var(--font-size-3xl);
+        }
+        
+        h3 {
+            font-size: var(--font-size-2xl);
+        }
+        
+        h4 {
+            font-size: var(--font-size-xl);
+        }
+        
+        p {
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .text-muted {
+            color: var(--muted-foreground);
+        }
+        
+        .text-primary {
+            color: var(--primary);
+        }
+        
+        .text-accent {
+            color: var(--accent);
+        }
+        
+        /* Grid system */
+        .grid {
+            display: grid;
+            gap: var(--spacing-md);
+        }
+        
+        .grid-cols-1 {
+            grid-template-columns: repeat(1, 1fr);
+        }
+        
+        .grid-cols-2 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        
+        .grid-cols-3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        
+        .grid-cols-4 {
+            grid-template-columns: repeat(4, 1fr);
+        }
+        
+        @media (min-width: 768px) {
+            .md\\:grid-cols-2 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .md\\:grid-cols-3 {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .lg\\:grid-cols-2 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .lg\\:grid-cols-3 {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .lg\\:grid-cols-4 {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        /* Flexbox utilities */
+        .flex {
+            display: flex;
+        }
+        
+        .flex-col {
+            flex-direction: column;
+        }
+        
+        .items-center {
+            align-items: center;
+        }
+        
+        .items-start {
+            align-items: flex-start;
+        }
+        
+        .justify-center {
+            justify-content: center;
+        }
+        
+        .justify-between {
+            justify-content: space-between;
+        }
+        
+        .gap-2 {
+            gap: var(--spacing-sm);
+        }
+        
+        .gap-3 {
+            gap: 0.75rem;
+        }
+        
+        .gap-4 {
+            gap: var(--spacing-md);
+        }
+        
+        .gap-6 {
+            gap: var(--spacing-lg);
+        }
+        
+        .gap-8 {
+            gap: var(--spacing-xl);
+        }
+        
+        .gap-12 {
+            gap: var(--spacing-2xl);
+        }
+        
+        /* Spacing utilities */
+        .p-4 {
+            padding: var(--spacing-md);
+        }
+        
+        .p-6 {
+            padding: var(--spacing-lg);
+        }
+        
+        .p-8 {
+            padding: var(--spacing-xl);
+        }
+        
+        .py-16 {
+            padding-top: var(--spacing-3xl);
+            padding-bottom: var(--spacing-3xl);
+        }
+        
+        .py-20 {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+        }
+        
+        .py-32 {
+            padding-top: 8rem;
+            padding-bottom: 8rem;
+        }
+        
+        .mb-4 {
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .mb-6 {
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .mb-8 {
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .mb-12 {
+            margin-bottom: var(--spacing-2xl);
+        }
+        
+        .mt-8 {
+            margin-top: var(--spacing-xl);
+        }
+        
+        /* Background utilities */
+        .bg-primary {
+            background-color: var(--primary);
+        }
+        
+        .bg-secondary {
+            background-color: var(--secondary);
+        }
+        
+        .bg-accent {
+            background-color: var(--accent);
+        }
+        
+        .bg-mobility-light {
+            background-color: var(--mobility-light);
+        }
+        
+        .bg-gradient-primary {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+        }
+        
+        .bg-gradient-hero {
+            background: linear-gradient(135deg, rgba(30, 64, 175, 0.8), rgba(34, 197, 94, 0.7));
+        }
+        
+        /* Text utilities */
+        .text-center {
+            text-align: center;
+        }
+        
+        .text-white {
+            color: white;
+        }
+        
+        .text-sm {
+            font-size: var(--font-size-sm);
+        }
+        
+        .text-lg {
+            font-size: var(--font-size-lg);
+        }
+        
+        .text-xl {
+            font-size: var(--font-size-xl);
+        }
+        
+        .text-2xl {
+            font-size: var(--font-size-2xl);
+        }
+        
+        .text-3xl {
+            font-size: var(--font-size-3xl);
+        }
+        
+        .text-4xl {
+            font-size: var(--font-size-4xl);
+        }
+        
+        .text-5xl {
+            font-size: var(--font-size-5xl);
+        }
+        
+        .text-6xl {
+            font-size: var(--font-size-6xl);
+        }
+        
+        .font-medium {
+            font-weight: 500;
+        }
+        
+        .font-semibold {
+            font-weight: 600;
+        }
+        
+        .font-bold {
+            font-weight: 700;
+        }
+        
+        /* Card component */
+        .card {
+            background-color: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        
+        .card:hover {
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .card-header {
+            padding: var(--spacing-lg);
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .card-content {
+            padding: var(--spacing-lg);
+        }
+        
+        .card-title {
+            font-size: var(--font-size-xl);
+            font-weight: 600;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        /* Badge component */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.75rem;
+            font-size: var(--font-size-sm);
+            font-weight: 500;
+            border-radius: calc(var(--radius) * 2);
+            border: 1px solid var(--border);
+            background-color: var(--background);
+            color: var(--foreground);
+            transition: var(--transition);
+        }
+        
+        /* Button component */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            font-size: var(--font-size-sm);
+            font-weight: 500;
+            border-radius: var(--radius);
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--primary-foreground);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary);
+            color: var(--secondary-foreground);
+        }
+        
+        .btn-outline {
+            border: 1px solid var(--primary);
+            background-color: transparent;
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: var(--primary-foreground);
+        }
+        
+        .btn-cta {
+            background-color: var(--accent);
+            color: var(--accent-foreground);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-cta:hover {
+            background-color: var(--accent-hover);
+            box-shadow: var(--shadow-xl);
+            transform: translateY(-1px);
+        }
+        
+        .btn-lg {
+            padding: 0.75rem 2rem;
+            font-size: var(--font-size-base);
+        }
+        
+        .btn-white {
+            background-color: white;
+            color: var(--primary);
+        }
+        
+        .btn-white:hover {
+            background-color: #f9fafb;
+        }
+        
+        /* Icon utilities */
+        .icon {
+            width: 1.5rem;
+            height: 1.5rem;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        
+        .icon-sm {
+            width: 1rem;
+            height: 1rem;
+        }
+        
+        .icon-lg {
+            width: 2rem;
+            height: 2rem;
+        }
+        
+        .icon-xl {
+            width: 3rem;
+            height: 3rem;
+        }
+        
+        .icon-4xl {
+            width: 4rem;
+            height: 4rem;
+        }
+        
+        /* Navigation */
+        .navbar {
+            background-color: var(--background);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(8px);
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .navbar-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: var(--spacing-md) 0;
+        }
+        
+        .navbar-logo {
+            font-size: var(--font-size-xl);
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .navbar-nav {
+            display: none;
+            gap: var(--spacing-xl);
+            list-style: none;
+        }
+        
+        @media (min-width: 768px) {
+            .navbar-nav {
+                display: flex;
+            }
+        }
+        
+        .navbar-link {
+            text-decoration: none;
+            color: var(--foreground);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .navbar-link:hover {
+            color: var(--primary);
+        }
+        
+        .navbar-link.active {
+            color: var(--primary);
+        }
+        
+        .navbar-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: var(--primary);
+        }
+        
+        /* Mobile menu */
+        .mobile-menu-btn {
+            display: block;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        @media (min-width: 768px) {
+            .mobile-menu-btn {
+                display: none;
+            }
+        }
+        
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background-color: var(--background);
+            border-bottom: 1px solid var(--border);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .mobile-menu.active {
+            display: block;
+        }
+        
+        .mobile-menu-nav {
+            padding: var(--spacing-md);
+            list-style: none;
+        }
+        
+        .mobile-menu-item {
+            padding: var(--spacing-md) 0;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .mobile-menu-item:last-child {
+            border-bottom: none;
+        }
+        
+        /* Hero section */
+        .hero {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(30, 64, 175, 0.8), rgba(34, 197, 94, 0.7));
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            color: white;
+            text-align: center;
+        }
+        
+        /* Section utilities */
+        .section {
+            padding: var(--spacing-3xl) 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--spacing-2xl);
+        }
+        
+        /* Form styles */
+        .form-group {
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: var(--spacing-xs);
+            font-weight: 500;
+            color: var(--foreground);
+        }
+        
+        .form-input,
+        .form-textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background-color: var(--background);
+            color: var(--foreground);
+            font-size: var(--font-size-sm);
+            transition: var(--transition);
+        }
+        
+        .form-input:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--ring);
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+        }
+        
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--mobility-gray);
+            color: white;
+            padding: var(--spacing-2xl) 0 var(--spacing-md);
+        }
+        
+        .footer-content {
+            display: grid;
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        @media (min-width: 768px) {
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .footer-content {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        .footer-section h3 {
+            margin-bottom: var(--spacing-md);
+            color: white;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .footer-section ul li a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-section ul li a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: var(--spacing-md);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        /* Responsive utilities */
+        .hidden {
+            display: none;
+        }
+        
+        @media (min-width: 768px) {
+            .md\\:block {
+                display: block;
+            }
+            
+            .md\\:hidden {
+                display: none;
+            }
+            
+            .md\\:flex {
+                display: flex;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .lg\\:block {
+                display: block;
+            }
+            
+            .lg\\:hidden {
+                display: none;
+            }
+            
+            .lg\\:text-5xl {
+                font-size: var(--font-size-5xl);
+            }
+            
+            .lg\\:text-6xl {
+                font-size: var(--font-size-6xl);
+            }
+        }
+        
+        /* Animation utilities */
+        .transition {
+            transition: var(--transition);
+        }
+        
+        .hover\\:scale-105:hover {
+            transform: scale(1.05);
+        }
+        
+        .hover\\:translate-x-1:hover {
+            transform: translateX(0.25rem);
+        }
+        
+        /* Special sections */
+        .contact-hero {
+            background: linear-gradient(135deg, 
+                hsla(214, 84%, 45%, 0.1) 0%,
+                var(--mobility-light) 50%,
+                var(--background) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: 
+                linear-gradient(135deg, hsla(214, 84%, 45%, 0.2) 0%, hsla(142, 71%, 45%, 0.1) 50%, hsla(0, 0%, 100%, 0.8) 100%),
+                radial-gradient(circle at 20% 20%, hsla(214, 84%, 45%, 0.05) 0%, transparent 70%),
+                radial-gradient(circle at 80% 80%, hsla(142, 71%, 45%, 0.05) 0%, transparent 70%);
+            background-size: 100% 100%, 800px 800px, 600px 600px;
+            background-position: 0 0, -200px -200px, calc(100% + 200px) calc(100% + 200px);
+        }
+        
+        .contact-hero::after {
+            content: '';
+            position: absolute;
+            top: 33.33%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, hsla(214, 84%, 45%, 0.2) 50%, transparent 100%);
+        }
+        
+        /* Geometric background elements */
+        .geometric-bg {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            opacity: 0.02;
+            background-image: radial-gradient(circle at 1px 1px, var(--primary) 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+        
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Print styles */
+        @media print {
+            .navbar,
+            .mobile-menu,
+            .btn,
+            .footer {
+                display: none !important;
+            }
+            
+            body {
+                color: black;
+                background: white;
+            }
+            
+            .card {
+                border: 1px solid #ccc;
+                break-inside: avoid;
+            }
+        }
+        
+        /* SEO and accessibility */
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+        
+        /* Loading states */
+        .loading {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+        
+        /* Focus management */
+        *:focus {
+            outline: 2px solid var(--ring);
+            outline-offset: 2px;
+        }
+        
+        .btn:focus {
+            outline-offset: 4px;
+        }
+        
+        /* Image optimization */
+        img {
+            max-width: 100%;
+            height: auto;
+            loading: lazy;
+        }
+        
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            
+            html {
+                scroll-behavior: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" role="navigation" aria-label="Menu principal">
+        <div class="container">
+            <div class="navbar-container">
+                <a href="#home" class="navbar-logo" aria-label="LG Mobilidade Urbana - Página inicial">
+                    LG Mobilidade Urbana
+                </a>
+                
+                <ul class="navbar-nav" role="menubar">
+                    <li role="none">
+                        <a href="#home" class="navbar-link active" role="menuitem">Início</a>
+                    </li>
+                    <li role="none">
+                        <a href="#quem-somos" class="navbar-link" role="menuitem">Quem Somos</a>
+                    </li>
+                    <li role="none">
+                        <a href="#servicos" class="navbar-link" role="menuitem">Serviços</a>
+                    </li>
+                    <li role="none">
+                        <a href="#areas-atuacao" class="navbar-link" role="menuitem">Áreas de Atuação</a>
+                    </li>
+                    <li role="none">
+                        <a href="#contato" class="navbar-link" role="menuitem">Contato</a>
+                    </li>
+                </ul>
+                
+                <button class="mobile-menu-btn" aria-label="Abrir menu" aria-expanded="false" onclick="toggleMobileMenu()">
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path d="M3 12h18M3 6h18M3 18h18"></path>
+                    </svg>
+                </button>
+                
+                <a href="#contato" class="btn btn-primary hidden md:block">
+                    Entre em Contato
+                </a>
+            </div>
+            
+            <div class="mobile-menu" id="mobileMenu" role="menu" aria-hidden="true">
+                <ul class="mobile-menu-nav">
+                    <li class="mobile-menu-item">
+                        <a href="#home" class="navbar-link" role="menuitem" onclick="closeMobileMenu()">Início</a>
+                    </li>
+                    <li class="mobile-menu-item">
+                        <a href="#quem-somos" class="navbar-link" role="menuitem" onclick="closeMobileMenu()">Quem Somos</a>
+                    </li>
+                    <li class="mobile-menu-item">
+                        <a href="#servicos" class="navbar-link" role="menuitem" onclick="closeMobileMenu()">Serviços</a>
+                    </li>
+                    <li class="mobile-menu-item">
+                        <a href="#areas-atuacao" class="navbar-link" role="menuitem" onclick="closeMobileMenu()">Áreas de Atuação</a>
+                    </li>
+                    <li class="mobile-menu-item">
+                        <a href="#contato" class="navbar-link" role="menuitem" onclick="closeMobileMenu()">Contato</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <main>
+        <section id="home" class="hero" style="background-image: linear-gradient(rgba(30, 64, 175, 0.8), rgba(34, 197, 94, 0.7)), url('data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1200 600\"><rect fill=\"%23f0f9ff\" width=\"1200\" height=\"600\"/><g fill=\"%234f46e5\" opacity=\"0.1\"><circle cx=\"300\" cy=\"150\" r=\"80\"/><circle cx=\"900\" cy=\"450\" r=\"120\"/><rect x=\"500\" y=\"200\" width=\"200\" height=\"100\" rx=\"10\"/></g></svg>');">
+            <div class="hero-overlay"></div>
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="text-4xl lg:text-6xl font-bold mb-6">
+                        Eficiência e equilíbrio para sistemas de transporte público
+                    </h1>
+                    <p class="text-xl lg:text-2xl mb-8" style="max-width: 48rem; margin-left: auto; margin-right: auto;">
+                        Estudos, projetos e gestão operacional que reduzem custos, aumentam desempenho e entregam resultados consistentes para operadores e órgãos gestores.
+                    </p>
+                    <div class="flex flex-col gap-4 items-center">
+                        <a href="#servicos" class="btn btn-white btn-lg">
+                            Conheça Nossos Serviços
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <path d="M5 12h14m-7-7 7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Summary -->
+        <section class="section">
+            <div class="container">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <div class="badge mb-4">Sobre a LG Mobilidade Urbana</div>
+                        <h2 class="text-3xl lg:text-4xl font-bold mb-6">
+                            Transformamos complexidade em eficiência operacional
+                        </h2>
+                        <p class="text-lg text-muted mb-6">
+                            A LG Mobilidade Urbana é uma consultoria especializada que oferece soluções técnicas 
+                            para o setor de transporte público. Nossa equipe reúne mais de 25 anos de experiência 
+                            em planejamento, gestão e operação de sistemas de mobilidade urbana.
+                        </p>
+                        <div class="mb-8">
+                            <div class="flex items-center gap-3 mb-3">
+                                <svg class="icon text-accent" viewBox="0 0 24 24">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <span>Metodologia técnica consolidada</span>
+                            </div>
+                            <div class="flex items-center gap-3 mb-3">
+                                <svg class="icon text-accent" viewBox="0 0 24 24">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <span>Atendimento especializado</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <svg class="icon text-accent" viewBox="0 0 24 24">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <span>Foco em resultados mensuráveis</span>
+                            </div>
+                        </div>
+                        <a href="#quem-somos" class="btn btn-outline">
+                            Saiba Mais Sobre Nós
+                            <svg class="icon icon-sm" viewBox="0 0 24 24">
+                                <path d="M5 12h14m-7-7 7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </div>
+                    <div style="padding-left: 2rem;">
+                        <div class="card">
+                            <div class="card-content">
+                                <h3 class="text-xl font-semibold mb-4">Áreas de Especialização</h3>
+                                <div style="display: flex; flex-direction: column; gap: 1rem;">
+                                    <div class="flex items-start gap-3">
+                                        <svg class="icon text-primary" style="margin-top: 0.25rem;" viewBox="0 0 24 24">
+                                            <path d="M3 3v5h6V3M7 17l-4-4H7V9h2v4h4l-4 4M21 17l-4-4h4V9h2v4h4l-4 4M17 6h4v2h-4V6M21 14h-4v2h4v-2"></path>
+                                        </svg>
+                                        <div>
+                                            <h4 class="font-medium">Planejamento Estratégico</h4>
+                                            <p class="text-sm text-muted">Estudos de viabilidade e análise operacional</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start gap-3">
+                                        <svg class="icon text-primary" style="margin-top: 0.25rem;" viewBox="0 0 24 24">
+                                            <circle cx="12" cy="12" r="3"></circle>
+                                            <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"></path>
+                                        </svg>
+                                        <div>
+                                            <h4 class="font-medium">Gestão Operacional</h4>
+                                            <p class="text-sm text-muted">Monitoramento e otimização de sistemas</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start gap-3">
+                                        <svg class="icon text-primary" style="margin-top: 0.25rem;" viewBox="0 0 24 24">
+                                            <path d="M3 21h4l13-13a1.5 1.5 0 00-4-4L3 17v4M13.5 6.5l4 4"></path>
+                                        </svg>
+                                        <div>
+                                            <h4 class="font-medium">Projetos e Engenharia</h4>
+                                            <p class="text-sm text-muted">Integração tecnológica e inovação</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Overview -->
+        <section id="servicos" class="section bg-mobility-light">
+            <div class="container">
+                <div class="section-header">
+                    <div class="badge mb-4">Nossos Serviços</div>
+                    <h2 class="text-3xl lg:text-4xl font-bold mb-4">
+                        Soluções Completas para Mobilidade Urbana
+                    </h2>
+                    <p class="text-lg text-muted" style="max-width: 32rem; margin: 0 auto;">
+                        Oferecemos um portfólio abrangente de serviços técnicos especializados, 
+                        organizados em três pilares fundamentais para o transporte público eficiente.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Planejamento -->
+                    <div class="card transition hover:scale-105">
+                        <div class="card-content">
+                            <svg class="icon-xl text-primary mb-4" viewBox="0 0 24 24">
+                                <path d="M3 3v5h6V3M7 17l-4-4H7V9h2v4h4l-4 4M21 17l-4-4h4V9h2v4h4l-4 4M17 6h4v2h-4V6M21 14h-4v2h4v-2"></path>
+                            </svg>
+                            <h3 class="text-xl font-semibold mb-3">Planejamento</h3>
+                            <ul style="list-style: none; padding: 0; margin: 0 0 1.5rem;">
+                                <li class="text-sm text-muted mb-2">• Estudos de custos e tarifas</li>
+                                <li class="text-sm text-muted mb-2">• Análise de demanda</li>
+                                <li class="text-sm text-muted mb-2">• Viabilidade técnica e econômica</li>
+                                <li class="text-sm text-muted mb-2">• Pesquisas especializadas</li>
+                            </ul>
+                            <p class="text-sm font-medium text-primary">
+                                Base técnica para decisões estratégicas eficazes
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Gestão e Operação -->
+                    <div class="card transition hover:scale-105">
+                        <div class="card-content">
+                            <svg class="icon-xl text-primary mb-4" viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="3"></circle>
+                                <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"></path>
+                            </svg>
+                            <h3 class="text-xl font-semibold mb-3">Gestão e Operação</h3>
+                            <ul style="list-style: none; padding: 0; margin: 0 0 1.5rem;">
+                                <li class="text-sm text-muted mb-2">• Programação operacional</li>
+                                <li class="text-sm text-muted mb-2">• Monitoramento contínuo</li>
+                                <li class="text-sm text-muted mb-2">• Gestão de frota</li>
+                                <li class="text-sm text-muted mb-2">• Capacitação técnica</li>
+                            </ul>
+                            <p class="text-sm font-medium text-primary">
+                                Otimização contínua para máxima eficiência
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Projetos e Engenharia -->
+                    <div class="card transition hover:scale-105">
+                        <div class="card-content">
+                            <svg class="icon-xl text-primary mb-4" viewBox="0 0 24 24">
+                                <path d="M3 21h4l13-13a1.5 1.5 0 00-4-4L3 17v4M13.5 6.5l4 4"></path>
+                            </svg>
+                            <h3 class="text-xl font-semibold mb-3">Projetos e Engenharia</h3>
+                            <ul style="list-style: none; padding: 0; margin: 0 0 1.5rem;">
+                                <li class="text-sm text-muted mb-2">• Integração tarifária</li>
+                                <li class="text-sm text-muted mb-2">• Transporte escolar</li>
+                                <li class="text-sm text-muted mb-2">• Supervisão tecnológica</li>
+                                <li class="text-sm text-muted mb-2">• Testes e validação</li>
+                            </ul>
+                            <p class="text-sm font-medium text-primary">
+                                Inovação aplicada ao transporte urbano
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-8">
+                    <a href="#areas-atuacao" class="btn btn-primary btn-lg">
+                        Ver Todos os Serviços
+                        <svg class="icon" viewBox="0 0 24 24">
+                            <path d="M5 12h14m-7-7 7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quem Somos Section -->
+        <section id="quem-somos" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="badge mb-4">Quem Somos</div>
+                    <h2 class="text-4xl lg:text-5xl font-bold mb-6">
+                        Excelência técnica e experiência a serviço da mobilidade urbana
+                    </h2>
+                    <p class="text-xl text-muted" style="max-width: 48rem; margin: 0 auto;">
+                        A LG Mobilidade Urbana é uma consultoria especializada em planejamento, execução e operação de sistemas de transporte público.
+                    </p>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="text-3xl font-bold mb-6">Nossa História</h3>
+                        <p class="text-lg text-muted mb-6">
+                            Fundada em Curitiba, referência mundial em sistemas BRT, a LG Mobilidade Urbana nasceu para suprir a necessidade de oferecer consultoria técnica de alto nível para transformar dados, demandas e restrições operacionais em soluções práticas, que funcionam na vida real.
+                        </p>
+                        <p class="text-lg text-muted mb-6">
+                            Nossa equipe técnica acumula mais de 25 anos de experiência prática em 
+                            planejamento, gestão e operação de sistemas de transporte público, atuando 
+                            tanto no setor público quanto privado.
+                        </p>
+                        <p class="text-lg text-muted mb-8">
+                            Ao longo dos anos, desenvolvemos metodologias consolidadas e mantemos relacionamento próximo com os principais players do setor, permitindo uma visão abrangente e atualizada dos desafios da mobilidade urbana.
+                        </p>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="text-center p-4 bg-mobility-light" style="border-radius: var(--radius-lg);">
+                                <svg class="icon-lg text-primary" style="margin: 0 auto 0.5rem;" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="8" r="7"></circle>
+                                    <polyline points="8.21,13.89 7,23 12,20 17,23 15.79,13.88"></polyline>
+                                </svg>
+                                <h4 class="font-semibold">25+ Anos</h4>
+                                <p class="text-sm text-muted">Experiência Acumulada</p>
+                            </div>
+                            <div class="text-center p-4 bg-mobility-light" style="border-radius: var(--radius-lg);">
+                                <svg class="icon-lg text-accent" style="margin: 0 auto 0.5rem;" viewBox="0 0 24 24">
+                                    <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"></path>
+                                </svg>
+                                <h4 class="font-semibold">100+ Projetos</h4>
+                                <p class="text-sm text-muted">Desenvolvidos</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="card">
+                            <div class="card-content">
+                                <div style="display: flex; flex-direction: column; gap: 1rem;">
+                                    <div class="flex items-start gap-3">
+                                        <svg class="icon text-accent" style="margin-top: 0.25rem;" viewBox="0 0 24 24">
+                                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                        <div>
+                                            <h4 class="font-medium">Independência Técnica</h4>
+                                            <p class="text-sm text-muted">
+                                                Análises imparciais sem vínculos comerciais com fornecedores
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start gap-3">
+                                        <svg class="icon text-accent" style="margin-top: 0.25rem;" viewBox="0 0 24 24">
+                                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                        <div>
+                                            <h4 class="font-medium">Visão Sistêmica</h4>
+                                            <p class="text-sm text-muted">
+                                                Compreensão ampla dos aspectos técnicos, econômicos e regulatórios
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start gap-3">
+                                        <svg class="icon text-accent" style="margin-top: 0.25rem;" viewBox="0 0 24 24">
+                                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                        <div>
+                                            <h4 class="font-medium">Experiência Prática</h4>
+                                            <p class="text-sm text-muted">
+                                                Vivência real em gestão e operação de sistemas de transporte
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start gap-3">
+                                        <svg class="icon text-accent" style="margin-top: 0.25rem;" viewBox="0 0 24 24">
+                                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                        <div>
+                                            <h4 class="font-medium">Atualização Constante</h4>
+                                            <p class="text-sm text-muted">
+                                                Acompanhamento das melhores práticas e inovações do setor
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Areas de Atuacao -->
+        <section id="areas-atuacao" class="section bg-mobility-light">
+            <div class="container">
+                <div class="section-header">
+                    <div class="badge mb-4">Áreas de Atuação</div>
+                    <h2 class="text-3xl lg:text-4xl font-bold mb-4">
+                        Atendemos Diversos Segmentos do Setor
+                    </h2>
+                    <p class="text-lg text-muted" style="max-width: 32rem; margin: 0 auto;">
+                        Nossa experiência abrange desde órgãos públicos gestores até empresas privadas 
+                        e fornecedores do setor de mobilidade urbana.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="card text-center p-6">
+                        <svg class="icon-4xl text-primary" style="margin: 0 auto 1rem;" viewBox="0 0 24 24">
+                            <path d="M3 21h4l13-13a1.5 1.5 0 00-4-4L3 17v4M13.5 6.5l4 4"></path>
+                        </svg>
+                        <h3 class="text-xl font-semibold mb-2">Órgãos Públicos</h3>
+                        <p class="text-muted">Prefeituras, secretarias e gestores de transporte público</p>
+                    </div>
+                    <div class="card text-center p-6">
+                        <svg class="icon-4xl text-primary" style="margin: 0 auto 1rem;" viewBox="0 0 24 24">
+                            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"></path>
+                        </svg>
+                        <h3 class="text-xl font-semibold mb-2">Empresas de Transporte</h3>
+                        <p class="text-muted">
+                            Operadoras privadas de ônibus urbano e sistemas integrados
+                        </p>
+                    </div>
+                    <div class="card text-center p-6">
+                        <svg class="icon-4xl text-primary" style="margin: 0 auto 1rem;" viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="3"></circle>
+                            <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"></path>
+                        </svg>
+                        <h3 class="text-xl font-semibold mb-2">Fabricantes e Fornecedores</h3>
+                        <p class="text-muted">
+                            Empresas de tecnologia e equipamentos para transporte público
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contato" class="section contact-hero">
+            <div class="container">
+                <div class="section-header">
+                    <div class="badge mb-6" style="border-color: hsla(214, 84%, 45%, 0.2); background-color: hsla(255, 255, 255, 0.5);">
+                        Entre em Contato
+                    </div>
+                    <h1 class="text-5xl lg:text-6xl font-bold mb-8">
+                        Vamos Conversar Sobre <br>
+                        <span class="text-primary">Seu Projeto</span>
+                    </h1>
+                    <p class="text-xl text-muted mb-10" style="max-width: 48rem; margin-left: auto; margin-right: auto; line-height: 1.75;">
+                        Nossa equipe de especialistas está pronta para discutir suas necessidades 
+                        e apresentar soluções técnicas customizadas para seu projeto de mobilidade urbana.
+                    </p>
+                    
+                    <!-- Trust Indicators -->
+                    <div class="flex flex-wrap justify-center gap-8 text-sm text-muted mb-12">
+                        <div class="flex items-center gap-2">
+                            <svg class="icon-sm text-primary" viewBox="0 0 24 24">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            Consultoria Especializada
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <svg class="icon-sm text-primary" viewBox="0 0 24 24">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            Atendimento Nacional
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <svg class="icon-sm text-primary" viewBox="0 0 24 24">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            Resposta em 24h
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="grid lg:grid-cols-2 gap-12" style="max-width: 64rem; margin: 0 auto;">
+                    <!-- Form -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Envie sua Mensagem</h3>
+                        </div>
+                        <div class="card-content">
+                            <form id="contactForm" onsubmit="handleFormSubmit(event)">
+                                <div class="form-group">
+                                    <label for="name" class="form-label">Nome *</label>
+                                    <input type="text" id="name" name="name" class="form-input" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="email" class="form-label">E-mail *</label>
+                                    <input type="email" id="email" name="email" class="form-input" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="phone" class="form-label">Telefone</label>
+                                    <input type="tel" id="phone" name="phone" class="form-input">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="company" class="form-label">Empresa/Órgão</label>
+                                    <input type="text" id="company" name="company" class="form-input">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="message" class="form-label">Mensagem *</label>
+                                    <textarea id="message" name="message" class="form-textarea" required 
+                                        placeholder="Descreva seu projeto ou necessidade de consultoria..."></textarea>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-cta" style="width: 100%;">
+                                    Enviar via WhatsApp
+                                    <svg class="icon" viewBox="0 0 24 24">
+                                        <path d="M5 12h14m-7-7 7 7-7 7"></path>
+                                    </svg>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Info -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Informações de Contato</h3>
+                        </div>
+                        <div class="card-content" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                            <div class="flex items-start gap-3">
+                                <svg class="icon text-primary" style="margin-top: 0.25rem;" viewBox="0 0 24 24">
+                                    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"></path>
+                                </svg>
+                                <div>
+                                    <h4 class="font-medium">Telefone</h4>
+                                    <p class="text-sm text-muted">(41) 99999-9999</p>
+                                    <p class="text-sm text-muted">WhatsApp disponível</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start gap-3">
+                                <svg class="icon text-primary" style="margin-top: 0.25rem;" viewBox="0 0 24 24">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
+                                <div>
+                                    <h4 class="font-medium">E-mail</h4>
+                                    <p class="text-sm text-muted">contato@lgmobilidadeurbana.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start gap-3">
+                                <svg class="icon text-primary" style="margin-top: 0.25rem;" viewBox="0 0 24 24">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                                <div>
+                                    <h4 class="font-medium">Localização</h4>
+                                    <p class="text-sm text-muted">Curitiba - PR</p>
+                                    <p class="text-sm text-muted">Atendimento nacional</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start gap-3">
+                                <svg class="icon text-primary" style="margin-top: 0.25rem;" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12,6 12,12 16,14"></polyline>
+                                </svg>
+                                <div>
+                                    <h4 class="font-medium">Horário de Atendimento</h4>
+                                    <p class="text-sm text-muted">Segunda a sexta: 8h às 18h</p>
+                                    <p class="text-sm text-muted">Resposta em até 24 horas</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Information -->
+                <div class="mt-16 text-center" style="max-width: 56rem; margin-left: auto; margin-right: auto;">
+                    <h2 class="text-3xl font-bold mb-6">Por que escolher a LG Mobilidade Urbana?</h2>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div>
+                            <div class="w-12 h-12 flex items-center justify-center mx-auto mb-4" 
+                                 style="background-color: hsla(214, 84%, 45%, 0.1); border-radius: var(--radius-lg);">
+                                <svg class="icon-lg text-primary" viewBox="0 0 24 24">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="font-semibold mb-2">Experiência Comprovada</h3>
+                            <p class="text-muted text-sm">
+                                Anos de experiência em projetos de mobilidade urbana em todo o Brasil
+                            </p>
+                        </div>
+                        <div>
+                            <div class="w-12 h-12 flex items-center justify-center mx-auto mb-4" 
+                                 style="background-color: hsla(214, 84%, 45%, 0.1); border-radius: var(--radius-lg);">
+                                <svg class="icon-lg text-primary" viewBox="0 0 24 24">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="font-semibold mb-2">Soluções Personalizadas</h3>
+                            <p class="text-muted text-sm">
+                                Cada projeto é único e desenvolvemos soluções sob medida para suas necessidades
+                            </p>
+                        </div>
+                        <div>
+                            <div class="w-12 h-12 flex items-center justify-center mx-auto mb-4" 
+                                 style="background-color: hsla(214, 84%, 45%, 0.1); border-radius: var(--radius-lg);">
+                                <svg class="icon-lg text-primary" viewBox="0 0 24 24">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="font-semibold mb-2">Suporte Completo</h3>
+                            <p class="text-muted text-sm">
+                                Acompanhamento desde o planejamento até a implementação final
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Final -->
+        <section class="section bg-gradient-primary text-white">
+            <div class="container text-center" style="max-width: 56rem;">
+                <h2 class="text-3xl lg:text-4xl font-bold mb-4">
+                    Pronto para otimizar seu sistema de transporte?
+                </h2>
+                <p class="text-xl mb-8" style="opacity: 0.9;">
+                    Entre em contato com nossos especialistas e descubra como podemos contribuir para o sucesso do seu projeto.
+                </p>
+                <div class="flex flex-col gap-4 items-center">
+                    <a href="#contato" class="btn btn-white btn-lg">
+                        Fale com Especialistas
+                        <svg class="icon" viewBox="0 0 24 24">
+                            <path d="M5 12h14m-7-7 7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>LG Mobilidade Urbana</h3>
+                    <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: 1rem;">
+                        Consultoria especializada em soluções técnicas para transporte público, 
+                        com foco em eficiência operacional e sustentabilidade.
+                    </p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Navegação</h3>
+                    <ul>
+                        <li><a href="#home">Início</a></li>
+                        <li><a href="#quem-somos">Quem Somos</a></li>
+                        <li><a href="#servicos">Serviços</a></li>
+                        <li><a href="#areas-atuacao">Áreas de Atuação</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Serviços</h3>
+                    <ul>
+                        <li><a href="#servicos">Planejamento</a></li>
+                        <li><a href="#servicos">Gestão e Operação</a></li>
+                        <li><a href="#servicos">Projetos e Engenharia</a></li>
+                        <li><a href="#areas-atuacao">Consultoria Técnica</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contato</h3>
+                    <ul>
+                        <li>Curitiba - PR</li>
+                        <li>(41) 99999-9999</li>
+                        <li>contato@lgmobilidadeurbana.com</li>
+                        <li>Atendimento nacional</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 LG Mobilidade Urbana. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu functionality
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const isOpen = mobileMenu.classList.contains('active');
+            
+            if (isOpen) {
+                closeMobileMenu();
+            } else {
+                mobileMenu.classList.add('active');
+                mobileMenu.setAttribute('aria-hidden', 'false');
+                document.querySelector('.mobile-menu-btn').setAttribute('aria-expanded', 'true');
+            }
+        }
+
+        function closeMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.remove('active');
+            mobileMenu.setAttribute('aria-hidden', 'true');
+            document.querySelector('.mobile-menu-btn').setAttribute('aria-expanded', 'false');
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    closeMobileMenu();
+                }
+            });
+        });
+
+        // Active navigation highlighting
+        function updateActiveNavigation() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.navbar-link');
+            
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.offsetHeight;
+                
+                if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // Contact form submission
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const phone = formData.get('phone');
+            const company = formData.get('company');
+            const message = formData.get('message');
+            
+            // Create WhatsApp message
+            let whatsappMessage = `Olá! Gostaria de solicitar uma consultoria em mobilidade urbana.\n\n`;
+            whatsappMessage += `*Nome:* ${name}\n`;
+            whatsappMessage += `*E-mail:* ${email}\n`;
+            
+            if (phone) {
+                whatsappMessage += `*Telefone:* ${phone}\n`;
+            }
+            
+            if (company) {
+                whatsappMessage += `*Empresa/Órgão:* ${company}\n`;
+            }
+            
+            whatsappMessage += `\n*Mensagem:*\n${message}`;
+            
+            // Encode message for URL
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            const whatsappURL = `https://wa.me/5541999999999?text=${encodedMessage}`;
+            
+            // Open WhatsApp
+            window.open(whatsappURL, '_blank');
+            
+            // Show success message
+            showNotification('Redirecionando para WhatsApp...', 'success');
+        }
+
+        // Notification system
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                padding: 12px 24px;
+                background-color: ${type === 'success' ? 'var(--accent)' : 'var(--primary)'};
+                color: white;
+                border-radius: var(--radius);
+                box-shadow: var(--shadow-lg);
+                z-index: 1000;
+                font-weight: 500;
+                transition: var(--transition);
+            `;
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.opacity = '0';
+                notification.style.transform = 'translateX(100%)';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+
+        // Scroll event listeners
+        window.addEventListener('scroll', updateActiveNavigation);
+        window.addEventListener('load', updateActiveNavigation);
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            
+            if (!mobileMenu.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
+                closeMobileMenu();
+            }
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeMobileMenu();
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards for animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+        });
+
+        // Form validation
+        function validateForm() {
+            const form = document.getElementById('contactForm');
+            const inputs = form.querySelectorAll('input[required], textarea[required]');
+            let isValid = true;
+
+            inputs.forEach(input => {
+                if (!input.value.trim()) {
+                    input.style.borderColor = 'var(--destructive)';
+                    isValid = false;
+                } else {
+                    input.style.borderColor = 'var(--border)';
+                }
+            });
+
+            return isValid;
+        }
+
+        // Add real-time validation
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('contactForm');
+            const inputs = form.querySelectorAll('input, textarea');
+
+            inputs.forEach(input => {
+                input.addEventListener('blur', () => {
+                    if (input.hasAttribute('required') && !input.value.trim()) {
+                        input.style.borderColor = 'var(--destructive)';
+                    } else {
+                        input.style.borderColor = 'var(--border)';
+                    }
+                });
+
+                input.addEventListener('input', () => {
+                    if (input.style.borderColor === 'var(--destructive)' && input.value.trim()) {
+                        input.style.borderColor = 'var(--border)';
+                    }
+                });
+            });
+        });
+
+        // Performance optimization - lazy loading
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy');
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+
+        // Analytics tracking (placeholder for WordPress integration)
+        function trackEvent(action, category, label) {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', action, {
+                    event_category: category,
+                    event_label: label
+                });
+            }
+        }
+
+        // Track form submissions
+        document.getElementById('contactForm').addEventListener('submit', () => {
+            trackEvent('form_submit', 'contact', 'whatsapp_redirect');
+        });
+
+        // Track navigation clicks
+        document.querySelectorAll('.navbar-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                trackEvent('navigation_click', 'menu', e.target.textContent);
+            });
+        });
+    </script>
+
+    <!-- SEO JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "LG Mobilidade Urbana",
+        "description": "Consultoria especializada em planejamento, gestão e operação de sistemas de transporte público",
+        "url": "https://lgmobilidadeurbana.com",
+        "logo": "https://lgmobilidadeurbana.com/logo.png",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+55-41-99999-9999",
+            "contactType": "customer service",
+            "availableLanguage": "Portuguese"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Curitiba",
+            "addressRegion": "PR",
+            "addressCountry": "BR"
+        },
+        "areaServed": "BR",
+        "serviceType": ["Consultoria em Mobilidade Urbana", "Planejamento de Transporte Público", "Gestão Operacional"],
+        "sameAs": []
+    }
+    </script>
+
+    <!-- Preload critical resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- WordPress integration hooks -->
+    <!-- wp_head() equivalent for WordPress -->
+    
+    <!-- Performance and accessibility features -->
+    <meta name="theme-color" content="#2563eb">
+    <meta name="color-scheme" content="light dark">
+    
+    <!-- Service Worker registration (optional for WordPress) -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js').catch(() => {
+                    // Service worker registration failed - non-critical
+                });
+            });
+        }
+    </script>
+</body>
+</html>
