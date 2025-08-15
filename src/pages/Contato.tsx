@@ -2,13 +2,14 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import ContactForm from "@/components/ContactForm";
 import { ArrowRight, CheckCircle } from "lucide-react";
+
 const Contato = () => {
   const scrollToForm = () => {
-    document.getElementById('contact-form')?.scrollIntoView({
-      behavior: 'smooth'
-    });
+    document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' });
   };
-  return <div className="min-h-screen">
+
+  return (
+    <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative py-32 bg-gradient-to-br from-primary/10 via-mobility-light to-background overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
@@ -27,7 +28,12 @@ const Contato = () => {
             </p>
             
             {/* CTA Button */}
-            <Button variant="cta" size="lg" onClick={scrollToForm} className="group mb-12">
+            <Button 
+              variant="cta" 
+              size="lg" 
+              onClick={scrollToForm}
+              className="group mb-12"
+            >
               Entre em Contato
               <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
@@ -52,7 +58,11 @@ const Contato = () => {
       </section>
 
       {/* Contact Form Section */}
-      
+      <section id="contact-form" className="py-20 bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ContactForm />
+        </div>
+      </section>
 
       {/* Additional Information */}
       <section className="py-16 bg-muted/30">
@@ -89,6 +99,7 @@ const Contato = () => {
           </div>
         </div>
       </section>
-    </div>;
+    </div>
+  );
 };
 export default Contato;
