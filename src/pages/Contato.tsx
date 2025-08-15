@@ -12,7 +12,24 @@ const Contato = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative py-32 bg-gradient-to-br from-primary/10 via-mobility-light to-background overflow-hidden">
-        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+        <div className="absolute inset-0 overflow-hidden">
+          {/* Gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-accent/10 to-background/80"></div>
+          
+          {/* Geometric shapes for visual interest */}
+          <div className="absolute top-20 right-20 w-72 h-72 bg-primary/5 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 left-20 w-96 h-96 bg-accent/5 rounded-full blur-3xl"></div>
+          
+          {/* Subtle grid pattern */}
+          <div className="absolute inset-0 opacity-[0.02]" style={{
+            backgroundImage: 'radial-gradient(circle at 1px 1px, hsl(214 84% 45%) 1px, transparent 0)',
+            backgroundSize: '40px 40px'
+          }}></div>
+          
+          {/* Mobility-themed geometric lines */}
+          <div className="absolute top-1/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent"></div>
+          <div className="absolute top-2/3 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent/20 to-transparent"></div>
+        </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center">
             <Badge variant="outline" className="mb-6 border-primary/20 bg-background/50">
