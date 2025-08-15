@@ -188,21 +188,21 @@ const Home = () => {
               <h3 className="text-2xl font-semibold mb-6">Como atuamos:</h3>
               <div className="space-y-4">
                 <div className="flex gap-4">
-                  <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold text-sm">1</div>
+                  <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
                   <div>
                     <h4 className="font-medium mb-1">Diagnóstico técnico especializado</h4>
                     <p className="text-muted-foreground">Análise detalhada da situação atual com metodologia consolidada</p>
                   </div>
                 </div>
                 <div className="flex gap-4">
-                  <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold text-sm">2</div>
+                  <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
                   <div>
                     <h4 className="font-medium mb-1">Planejamento estratégico</h4>
                     <p className="text-muted-foreground">Definimos rotas, integrações tarifárias e operacionais, e dimensionamos recursos de forma precisa.</p>
                   </div>
                 </div>
                 <div className="flex gap-4">
-                  <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold text-sm">3</div>
+                  <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
                   <div>
                     <h4 className="font-medium mb-1">Implementação acompanhada</h4>
                     <p className="text-muted-foreground"> Implementamos programas de monitoramento, controle de frota e capacitação técnica para manter o sistema funcionando no seu melhor desempenho.</p>
